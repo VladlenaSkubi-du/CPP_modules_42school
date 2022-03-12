@@ -33,7 +33,6 @@ int main(int argc, const char * argv[]) {
 				j++;
 			}
 			std::cout << data;
-			//нужен ли деструктор data и как его записать?
 		}
 	}
 	if (empty == argc - 1) {
