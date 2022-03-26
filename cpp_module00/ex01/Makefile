@@ -15,7 +15,8 @@ CPPFLAGS=-Wall -Wextra -Werror
 # Source files
 
 SRCS=phoneBook.cpp \
-		phoneBook_methods.cpp
+		phoneBook_methods.cpp \
+		contact_methods.cpp
 
 # Include files
 
