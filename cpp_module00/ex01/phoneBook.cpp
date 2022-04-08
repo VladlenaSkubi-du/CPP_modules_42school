@@ -1,4 +1,4 @@
-#include "phoneBook.hpp"
+#include "includes.hpp"
 
 char ft_toupper_cpp(const char sy) {
     if (sy <= 'z' && sy >= 'a')
@@ -36,19 +36,18 @@ int main(void) {
 	std::string command(6, '\0');
 
 	while (1) {
-
+		
 		std::cout << "Enter command: ";
 		std::getline(std::cin, command);
 		command.assign(megaphone_command(command));
-		PhoneBook *phonebook = new PhoneBook;
+		PhoneBook	*phonebook = new PhoneBook(8);
 		if (command.compare("ADD") == 0) {
 			add_new_contact();
 		}
 		else if (command.compare("SEARCH") == 0) {
-			phonebook->print_phonebook_contacts();
+			look_for_contact();
 		}
-		else if (command.compare("EXIT") == 0 || !std::cin) { //check if works
-			
+		else if (command.compare("EXIT") == 0 || !std::cin) {
 			delete phonebook;
 			break ;
 		}

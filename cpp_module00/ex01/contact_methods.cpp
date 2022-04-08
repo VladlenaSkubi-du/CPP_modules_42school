@@ -1,30 +1,34 @@
-#include "phoneBook.hpp"
+#include "includes.hpp"
 
-PhoneBookContact::PhoneBookContact(void) {
+Contact::Contact(void) {
     this->ContactID = 0;
     this->FirstName = "";
     this->LastName = "";
     this->Nickname = "";
     this->PhoneNumber = "";
     this->DarkestSecret = "";
+    return ;
 }
 
-PhoneBookContact::PhoneBookContact(short id, const std::string& fn, const std::string& sn, const std::string& nick,
+Contact::Contact(int id, const std::string& fn, const std::string& sn, const std::string& nick,
 			const std::string& phone, const std::string& secret) {
-    ContactID = id;
-    FirstName = fn;
-    LastName = sn;
-    Nickname = nick;
-    PhoneNumber = phone;
-    DarkestSecret = secret;
+    this->ContactID = id;
+    this->FirstName = fn;
+    this->LastName = sn;
+    this->Nickname = nick;
+    this->PhoneNumber = phone;
+    this->DarkestSecret = secret;
+    return ;
 }
 
-PhoneBookContact::~PhoneBookContact(void) { }
+Contact::~Contact(void) { return ; }
 
-void    PhoneBookContact::display_while_search(void) {
+void    Contact::display_contact_id(void) {
+    
     int field_room = 10;
     
     std::cout << ContactID << std::string(field_room - 1, ' ');
+
     std::cout << "|";
     if (FirstName.size() <= 10) {
         std::cout << FirstName << std::string(field_room - FirstName.size(), ' ');
@@ -33,6 +37,7 @@ void    PhoneBookContact::display_while_search(void) {
         std::cout << FirstName.substr(0, 9);
         std::cout << ".";
     }
+
     std::cout << "|";
     if (LastName.size() <= 10) {
         std::cout << LastName << std::string(field_room - LastName.size(), ' ');
@@ -41,6 +46,7 @@ void    PhoneBookContact::display_while_search(void) {
         std::cout << LastName.substr(0, 9);
         std::cout << ".";
     }
+
     std::cout << "|";
     if (Nickname.size() <= 10) {
         std::cout << Nickname << std::string(field_room - Nickname.size(), ' ');
@@ -50,9 +56,16 @@ void    PhoneBookContact::display_while_search(void) {
         std::cout << ".";
     }
     std::cout << "|" << std::endl;
-    // std::cout << "First name is: " << FirstName << std::endl;
-    // std::cout << "Last name is: " << LastName << std::endl;
-    // std::cout << "Nickname is: " << Nickname << std::endl;
     std::cout << std::string(field_room * 4 + 4, '-') << std::endl;
+    return ;
 }
 
+void    Contact::display_contact_fully(void) {
+
+    std::cout << "First name: " << FirstName << std::endl;
+    std::cout << "Last name: " << LastName << std::endl;
+    std::cout << "Nickname: " << Nickname << std::endl;
+    std::cout << "Phone number: " << PhoneNumber << std::endl;
+    std::cout << "Darkest secret: " << DarkestSecret << std::endl;
+    return ;
+}
