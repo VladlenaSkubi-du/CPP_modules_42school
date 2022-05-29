@@ -10,11 +10,11 @@ Contact::Contact(void) {
     return ;
 }
 
-Contact::Contact(int id, const std::string& fn, const std::string& sn, const std::string& nick,
+Contact::Contact(int id, const std::string& fn, const std::string& ln, const std::string& nick,
 			const std::string& phone, const std::string& secret) {
     this->ContactID = id;
     this->FirstName = fn;
-    this->LastName = sn;
+    this->LastName = ln;
     this->Nickname = nick;
     this->PhoneNumber = phone;
     this->DarkestSecret = secret;

@@ -7,12 +7,13 @@ class PhoneBook {
 	private:
 		int			id;
 		int			capacity;
-		Contact		*YourContact;
+		Contact		*YourBook;
 	public:
-		PhoneBook(const int capacity_custom);
+		PhoneBook(void);
 		~PhoneBook(void);
 
-		void	add_to_phonebook(int id, int capacity);
+		void	add_to_phonebook();
+		void	display_contact_for_search();
 		// void	display_contact_by_id(short);
 };
 

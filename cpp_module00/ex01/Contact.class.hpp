@@ -17,7 +17,7 @@ class Contact {
 		std::string	DarkestSecret;
 	public:
 		Contact(void);
-		Contact(int id, const std::string& fn, const std::string& sn, const std::string& nick,
+		Contact(int id, const std::string& fn, const std::string& ln, const std::string& nick,
 			const std::string& phone, const std::string& secret);
 		~Contact(void);
 

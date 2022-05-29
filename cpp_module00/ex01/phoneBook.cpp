@@ -19,12 +19,16 @@ std::string	megaphone_command(const std::string& raw_command) {
 	return (data);
 }
 
-void add_new_contact(void) {
-	std::cout << "adding" << std::endl;
+void add_new_contact(PhoneBook *yourphonebook) {
+	std::cout << "Let's add a new contact to your phone book!" << std::endl;
+	// yourphonebook->add_to_phonebook();
+	return ;
 }
 
-void look_for_contact(void) {
+void look_for_contact(PhoneBook *yourphonebook) {
 	std::cout << "looking" << std::endl;
+	yourphonebook->display_contact_for_search();
+	return ;
 }
 
 void wrong_command(void) {
@@ -32,31 +36,28 @@ void wrong_command(void) {
 }
 
 int main(void) {
-	int input = 10;
+	int input = 10; // DELETE
 	std::string command(6, '\0');
 
-	while (1) {
-		
+	while (1) {		
 		std::cout << "Enter command: ";
 		std::getline(std::cin, command);
 		command.assign(megaphone_command(command));
-		PhoneBook	*phonebook = new PhoneBook(8);
+		PhoneBook	*yourphonebook = new PhoneBook();
 		if (command.compare("ADD") == 0) {
-			add_new_contact();
+			add_new_contact(yourphonebook);
 		}
 		else if (command.compare("SEARCH") == 0) {
-			look_for_contact();
+			look_for_contact(yourphonebook);
 		}
 		else if (command.compare("EXIT") == 0 || !std::cin) {
-			delete phonebook;
+			delete yourphonebook;
 			break ;
 		}
 		else {
 			wrong_command();
 		}
-		input--;
+		input--; // DELETE
 	}
 	return 0;
 }
-
-//зачем вообще используется getline?

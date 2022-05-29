@@ -10,17 +10,20 @@ NAME=PhoneBookCpp
 
 # Flags
 
-CPPFLAGS=-Wall -Wextra -Werror
+CPPFLAGS=-Wall #-Wextra -Werror
 
 # Source files
 
 SRCS=phoneBook.cpp \
+		validation.cpp \
 		phoneBook_methods.cpp \
 		contact_methods.cpp
 
 # Include files
 
-INCS=phoneBook.hpp
+INCS= -I includes.hpp \
+		-I PhoneBook.class.hpp \
+		-I Contact.class.hpp
 
 # Rules
 
@@ -37,8 +40,8 @@ $(NAME): $(OBJS)
 	@$(CC) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@$(ECHO) "\033[32;01m$(NAME) is ready\033[0m"
 
-$(OBJS): %.o : %.cpp $(INCS)
-	$(CC) $(CPPFLAGS) -I $(INCS) -c $< -o $@
+$(OBJS): %.o : %.cpp $(wildcard $(INCS)/*.hpp)
+	$(CC) $(CPPFLAGS) -c $(INCS) -o $@ $<
 
 clean:
 	@$(ECHO) "\033[34mDeleting $(NAME) o-files\033[0m"
